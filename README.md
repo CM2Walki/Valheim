@@ -1,8 +1,8 @@
 [![](https://img.shields.io/codacy/grade/e201fa6b35074864b200eaf558563a22.svg)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/cm2network/valheim)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Stars](https://img.shields.io/docker/stars/cm2network/valheim.svg)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Pulls](https://img.shields.io/docker/pulls/cm2network/csgo.valheim)](https://hub.docker.com/r/cm2network/valheim/) [![](https://img.shields.io/docker/image-size/cm2network/valheim)](https://img.shields.io/docker/image-size/cm2network/valheim) [![Discord](https://img.shields.io/discord/747067734029893653)](https://discord.gg/7ntmAwM)
 # Supported tags and respective `Dockerfile` links
--	[`latest` (*buster/Dockerfile*)](https://github.com/CM2Walki/CSGO/blob/master/buster/Dockerfile)
--	[`metamod` (*buster-metamod/Dockerfile*)](https://github.com/CM2Walki/CSGO/blob/master/buster-metamod/Dockerfile)
--	[`sourcemod` (*buster-sourcemod/Dockerfile*)](https://github.com/CM2Walki/CSGO/blob/master/buster-sourcemod/Dockerfile)
+-	[`latest` (*buster/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/buster/Dockerfile)
+
+### This is WIP
 
 # What is Valheim?
 A brutal exploration and survival game for 1-10 players, set in a procedurally-generated purgatory inspired by viking culture. Battle, build, and conquer your way to a saga worthy of Odin’s patronage!
