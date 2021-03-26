@@ -5,7 +5,7 @@ FROM cm2network/steamcmd:root
 
 LABEL maintainer="walentinlamonos@gmail.com"
 
-ENV STEAMAPPID 892970
+ENV STEAMAPPID 896660
 ENV STEAMAPP valheim
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 ENV DLURL https://raw.githubusercontent.com/CM2Walki/Valheim
@@ -33,7 +33,7 @@ ENV SERVER_PORT=2456 \
 	SERVER_PW="changeme" \
 	SERVER_NAME="New \"${STEAMAPP}\" Server" \
 	SERVER_LOG_PATH="logs_output/outputlog_server.txt" \
-	SERVER_SAVE_DIR="${STEAMAPP}/Worlds" \
+	SERVER_SAVE_DIR="Worlds" \
 	SCREEN_QUALITY="Fastest" \
 	SCREEN_WIDTH=640 \
 	SCREEN_HEIGHT=480 \

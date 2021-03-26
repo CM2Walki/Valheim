@@ -19,7 +19,8 @@ cd "${STEAMAPPDIR}"
 				-screen-quality "${SCREEN_QUALITY}" \
 				-logFile "${SERVER_LOG_PATH}" \
 				-port "${SERVER_PORT}" \
-				-name "${SERVER_WORLD_NAME}" \
+				-name "${SERVER_NAME}" \
+				-world "${SERVER_WORLD_NAME}" \
 				-password "${SERVER_PW}" \
 				-public "${SERVER_PUBLIC}" \
 				-savedir "${SERVER_SAVE_DIR}" \
