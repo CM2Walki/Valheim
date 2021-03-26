@@ -2,8 +2,6 @@
 # Supported tags and respective `Dockerfile` links
 -	[`latest` (*buster/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/buster/Dockerfile)
 
-# This is WIP
-
 # What is Valheim?
 A brutal exploration and survival game for 1-10 players, set in a procedurally-generated purgatory inspired by viking culture. Battle, build, and conquer your way to a saga worthy of Odin’s patronage!
 
@@ -38,14 +36,27 @@ $ docker run -d --net=host --name=valheim-dedicated2 cm2network/valheim
 ## Environment Variables
 Feel free to overwrite these environment variables, using -e (--env): 
 ```dockerfile
-
+SERVER_PORT=2456
+SERVER_PUBLIC=1
+SERVER_WORLD_NAME="BraveNewWorld"
+SERVER_PW="changeme"
+SERVER_NAME="New \"${STEAMAPP}\" Server"
+SERVER_LOG_PATH="logs_output/outputlog_server.txt"
+SERVER_SAVE_DIR="Worlds"
+SCREEN_QUALITY="Fastest"
+SCREEN_WIDTH=640
+SCREEN_HEIGHT=480
+STEAMCMD_UPDATE_ARGS="" (Gets appended here: +app_update [appid] [STEAMCMD_UPDATE_ARGS]; Example: "validate")
 ADDITIONAL_ARGS="" (Pass additional arguments to the server. Make sure to escape correctly!)
 ```
 
-If you want to learn more about configuring a Valheim server check this [documentation](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Dedicated_Servers#Advanced_Configuration).
+If you want to learn more about configuring a Valheim server check this [documentation](https://valheim.fandom.com/wiki/Hosting_Servers).
 
 # Image Variants:
-The `valheim` images come in three flavors, each designed for a specific use case.
+The `valheim` images come in two flavors, each designed for a specific use case.
 
 ## `valheim:latest`
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is a bare-minimum Valheim dedicated server containing no 3rd party plugins.<br/>
+
+## `valheim:plus`
+(**WIP**) This is a specialized image. It contains the popular mod [ValheimPlus](https://github.com/valheimPlus/ValheimPlus).
