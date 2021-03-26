@@ -36,7 +36,7 @@ $ docker run -d --net=host --name=valheim-dedicated2 cm2network/valheim
 ## Environment Variables
 Feel free to overwrite these environment variables, using -e (--env): 
 ```dockerfile
-SERVER_PORT=2456
+SERVER_PORT=2456 (Game Port (tcp & udp); Steam Query Port (udp) will be SERVER_PORT + 1)
 SERVER_PUBLIC=1
 SERVER_WORLD_NAME="BraveNewWorld"
 SERVER_PW="changeme"
