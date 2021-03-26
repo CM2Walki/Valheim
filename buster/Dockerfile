@@ -1,14 +1,14 @@
 ###########################################################
-# Dockerfile that builds a CSGO Gameserver
+# Dockerfile that builds a Valheim Gameserver
 ###########################################################
 FROM cm2network/steamcmd:root
 
 LABEL maintainer="walentinlamonos@gmail.com"
 
-ENV STEAMAPPID 740
-ENV STEAMAPP csgo
+ENV STEAMAPPID 892970
+ENV STEAMAPP valheim
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
-ENV DLURL https://raw.githubusercontent.com/CM2Walki/CSGO
+ENV DLURL https://raw.githubusercontent.com/CM2Walki/Valheim
 
 # Create autoupdate config
 # Add entry script & ESL config
@@ -17,43 +17,28 @@ RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
 		wget=1.20.1-1.1 \
-		ca-certificates=20190110 \
+		ca-certificates=20200601~deb10u2 \
 		lib32z1=1:1.2.11.dfsg-1 \
+		tini=0.18.0-1 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& wget --max-redirect=30 "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
-	&& { \
-		echo '@ShutdownOnFailedCommand 1'; \
-		echo '@NoPromptForPassword 1'; \
-		echo 'login anonymous'; \
-		echo 'force_install_dir '"${STEAMAPPDIR}"''; \
-		echo 'app_update '"${STEAMAPPID}"''; \
-		echo 'quit'; \
-	   } > "${HOMEDIR}/${STEAMAPP}_update.txt" \
-	&& chmod +x "${HOMEDIR}/entry.sh" \
-	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" "${HOMEDIR}/${STEAMAPP}_update.txt" \	
-	&& rm -rf /var/lib/apt/lists/* 
+	&& wget --max-redirect=30 "${DLURL}/master/etc/tinientry.sh" -O "${HOMEDIR}/tinientry.sh" \
+	&& chmod +x "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" \
+	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" "${STEAMAPPDIR}" \	
+	&& rm -rf /var/lib/apt/lists/*
 	
-ENV SRCDS_FPSMAX=300 \
-	SRCDS_TICKRATE=128 \
-	SRCDS_PORT=27015 \
-	SRCDS_TV_PORT=27020 \
-	SRCDS_CLIENT_PORT=27005 \
-	SRCDS_NET_PUBLIC_ADDRESS="0" \
-	SRCDS_IP="0" \
-	SRCDS_MAXPLAYERS=14 \
-	SRCDS_TOKEN=0 \
-	SRCDS_RCONPW="changeme" \
-	SRCDS_PW="changeme" \
-	SRCDS_STARTMAP="de_dust2" \
-	SRCDS_REGION=3 \
-	SRCDS_MAPGROUP="mg_active" \
-	SRCDS_GAMETYPE=0 \
-	SRCDS_GAMEMODE=1 \
-	SRCDS_HOSTNAME="New \"${STEAMAPP}\" Server" \
-	SRCDS_WORKSHOP_START_MAP=0 \
-	SRCDS_HOST_WORKSHOP_COLLECTION=0 \
-	SRCDS_WORKSHOP_AUTHKEY="" \
-	ADDITIONAL_ARGS=""
+ENV SERVER_PORT=2456 \
+	SERVER_PUBLIC=1 \
+	SERVER_WORLD_NAME="BraveNewWorld" \
+	SERVER_PW="changeme" \
+	SERVER_NAME="New \"${STEAMAPP}\" Server" \
+	SERVER_LOG_PATH="logs_output/outputlog_server.txt" \
+	SERVER_SAVE_DIR="${STEAMAPP}/Worlds" \
+	SCREEN_QUALITY="Fastest" \
+	SCREEN_WIDTH=640 \
+	SCREEN_HEIGHT=480 \
+	ADDITIONAL_ARGS="" \
+	STEAMCMD_UPDATE_ARGS=""
 
 USER ${USER}
 
@@ -61,9 +46,10 @@ VOLUME ${STEAMAPPDIR}
 
 WORKDIR ${HOMEDIR}
 
-CMD ["bash", "entry.sh"]
+STOPSIGNAL SIGINT
+
+ENTRYPOINT ["tini", "-g", "--", "/home/steam/tinientry.sh"]
 
 # Expose ports
-EXPOSE 27015/tcp \
-	27015/udp \
-	27020/udp
+EXPOSE 2456/tcp \
+	2456/udp
