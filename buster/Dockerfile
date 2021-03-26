@@ -52,4 +52,5 @@ ENTRYPOINT ["tini", "-g", "--", "/home/steam/tinientry.sh"]
 
 # Expose ports
 EXPOSE 2456/tcp \
-	2456/udp
+	2456/udp \
+	2467/udp
