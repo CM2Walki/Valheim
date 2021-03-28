@@ -52,6 +52,9 @@ ADDITIONAL_ARGS="" (Pass additional arguments to the server. Make sure to escape
 
 If you want to learn more about configuring a Valheim server check this [documentation](https://valheim.fandom.com/wiki/Hosting_Servers).
 
+## Config
+You can find the `adminlist.txt`, `bannedlist.txt` and `permittedlist.txt` here: `/home/steam/valheim-dedicated/Worlds`. The world database files can be found in `/home/steam/valheim-dedicated/Worlds/worlds`
+
 # Image Variants:
 The `valheim` images come in two flavors, each designed for a specific use case.
 
