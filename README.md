@@ -24,9 +24,9 @@ $ chmod 777 $(pwd)/valheim-data # Makes sure the directory is writeable by the u
 $ docker run -d --net=host -v $(pwd)/valheim-data:/home/steam/valheim-dedicated/ --name=valheim-dedicated cm2network/valheim
 ```
 
-Running multiple instances (increment X and Y):
+Running multiple instances (increment SERVER_PORT by two, there is no way to overwrite the steam query port, it will always be SERVER_PORT + 1!):
 ```console
-$ docker run -d --net=host --name=valheim-dedicated2 cm2network/valheim
+$ docker run -d --net=host -e SERVER_PORT=2458 --name=valheim-dedicated2 cm2network/valheim
 ```
 
 **It's also recommended to use "--cpuset-cpus=" to limit the game server to a specific core & thread.**<br/>
