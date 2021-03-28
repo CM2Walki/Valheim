@@ -29,7 +29,7 @@ if [ ! -z "$VALHEIM_PLUS_VERSION" ]; then
 						-port "${SERVER_PORT}" \
 						-world "${SERVER_WORLD_NAME}" \
 						-public "${SERVER_PUBLIC}"
-elif
+else
 	"./valheim_server.x86_64" -batchmode \
 					-nographics \
 					-screen-width "${SCREEN_WIDTH}" \
