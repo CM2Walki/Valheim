@@ -21,6 +21,7 @@ RUN set -x \
 		lib32z1=1:1.2.11.dfsg-1 \
 		tini=0.18.0-1 \
 		libc6-dev=2.28-10 \
+		file=1:5.35-4+deb10u2 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& wget --max-redirect=30 "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& wget --max-redirect=30 "${DLURL}/master/etc/tinientry.sh" -O "${HOMEDIR}/tinientry.sh" \
