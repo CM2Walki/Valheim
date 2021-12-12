@@ -1,6 +1,7 @@
 [![](https://img.shields.io/codacy/grade/33ce0225cb214844b8995d24c75a3080.svg)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/cm2network/valheim)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Stars](https://img.shields.io/docker/stars/cm2network/valheim.svg)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Pulls](https://img.shields.io/docker/pulls/cm2network/valheim.svg)](https://hub.docker.com/r/cm2network/valheim/) [![](https://img.shields.io/docker/image-size/cm2network/valheim)](https://img.shields.io/docker/image-size/cm2network/valheim) [![Discord](https://img.shields.io/discord/747067734029893653)](https://discord.gg/7ntmAwM)
 # Supported tags and respective `Dockerfile` links
 -	[`latest` (*buster/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/buster/Dockerfile)
+-	[`plus` (*buster-plus/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/buster-plus/Dockerfile)
 
 # What is Valheim?
 A brutal exploration and survival game for 1-10 players, set in a procedurally-generated purgatory inspired by viking culture. Battle, build, and conquer your way to a saga worthy of Odin’s patronage!
@@ -62,4 +63,7 @@ The `valheim` images come in two flavors, each designed for a specific use case.
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is a bare-minimum Valheim dedicated server containing no 3rd party plugins.<br/>
 
 ## `valheim:plus`
-(**WIP**) This is a specialized image. It contains the popular mod [ValheimPlus](https://github.com/valheimPlus/ValheimPlus).
+This is a specialized image. It contains the popular mod [ValheimPlus](https://github.com/valheimPlus/ValheimPlus).
+
+# Contributors
+[![Contributors Display](https://badges.pufler.dev/contributors/CM2Walki/Valheim?size=50&padding=5&bots=false)](https://github.com/CM2Walki/Valheim/graphs/contributors)
