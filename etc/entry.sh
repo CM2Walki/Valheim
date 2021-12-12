@@ -4,10 +4,10 @@ mkdir -p "${STEAMAPPDIR}" || true
 # Override SteamCMD launch arguments if necessary
 # Used for subscribing to betas or for testing
 if [ -z "$STEAMCMD_UPDATE_ARGS" ]; then
-	bash "${STEAMCMDDIR}/steamcmd.sh" +login anonymous +force_install_dir "$STEAMAPPDIR" +app_update "$STEAMAPPID" +quit
+	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "$STEAMAPPDIR" +login anonymous +app_update "$STEAMAPPID" +quit
 else
 	steamcmd_update_args=($STEAMCMD_UPDATE_ARGS)
-	bash "${STEAMCMDDIR}/steamcmd.sh" +login anonymous +force_install_dir "$STEAMAPPDIR" +app_update "$STEAMAPPID" "${steamcmd_update_args[@]}" +quit
+	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "$STEAMAPPDIR" +login anonymous +app_update "$STEAMAPPID" "${steamcmd_update_args[@]}" +quit
 fi
 
 # We assume that if the valheim plus config is missing, that this is a fresh container
