@@ -1,7 +1,7 @@
 [![](https://img.shields.io/codacy/grade/33ce0225cb214844b8995d24c75a3080.svg)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/cm2network/valheim)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Stars](https://img.shields.io/docker/stars/cm2network/valheim.svg)](https://hub.docker.com/r/cm2network/valheim/) [![Docker Pulls](https://img.shields.io/docker/pulls/cm2network/valheim.svg)](https://hub.docker.com/r/cm2network/valheim/) [![](https://img.shields.io/docker/image-size/cm2network/valheim)](https://img.shields.io/docker/image-size/cm2network/valheim) [![Discord](https://img.shields.io/discord/747067734029893653)](https://discord.gg/7ntmAwM)
 # Supported tags and respective `Dockerfile` links
--	[`latest` (*buster/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/buster/Dockerfile)
--	[`plus` (*buster-plus/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/buster-plus/Dockerfile)
+-	[`latest` (*bullseye/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/bullseye/Dockerfile)
+-	[`plus` (*bullseye-plus/Dockerfile*)](https://github.com/CM2Walki/Valheim/blob/master/bullseye-plus/Dockerfile)
 
 # What is Valheim?
 A brutal exploration and survival game for 1-10 players, set in a procedurally-generated purgatory inspired by viking culture. Battle, build, and conquer your way to a saga worthy of Odin’s patronage!
