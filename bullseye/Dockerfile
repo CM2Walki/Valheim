@@ -1,7 +1,7 @@
 ###########################################################
 # Dockerfile that builds a Valheim Gameserver
 ###########################################################
-FROM cm2network/steamcmd:root
+FROM cm2network/steamcmd:root as build_stage
 
 LABEL maintainer="walentinlamonos@gmail.com"
 
@@ -28,7 +28,9 @@ RUN set -x \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
-	
+
+FROM build_stage AS bullseye-base
+
 ENV SERVER_PORT=2456 \
 	SERVER_PUBLIC=1 \
 	SERVER_WORLD_NAME="BraveNewWorld" \
@@ -56,3 +58,7 @@ ENTRYPOINT ["tini", "-g", "--", "/home/steam/tinientry.sh"]
 EXPOSE 2456/tcp \
 	2456/udp \
 	2467/udp
+
+FROM bullseye-base AS bullseye-plus
+
+ENV VALHEIM_PLUS_VERSION 0.9.9.8
