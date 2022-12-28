@@ -61,4 +61,4 @@ EXPOSE 2456/tcp \
 
 FROM bullseye-base AS bullseye-plus
 
-ENV VALHEIM_PLUS_VERSION 0.9.9.9
+ENV VALHEIM_PLUS_VERSION 0.9.9.11
