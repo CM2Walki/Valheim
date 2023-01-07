@@ -23,6 +23,9 @@ Running using a bind mount for data persistence on container recreation:
 $ mkdir -p $(pwd)/valheim-data
 $ chmod 777 $(pwd)/valheim-data # Makes sure the directory is writeable by the unprivileged container user
 $ docker run -d --net=host -v $(pwd)/valheim-data:/home/steam/valheim-dedicated/ --name=valheim-dedicated cm2network/valheim
+---
+$ docker volume create valheim-plus-data # For valheim:plus - Create an additional world volume
+$ docker run -d --net=host -v $(pwd)/valheim-data:/home/steam/valheim-dedicated/ -v valheim-plus-data:/home/steam/.config/unity3d/IronGate/Valheim/ --name=valheim-plus-dedicated cm2network/valheim:plus
 ```
 
 Running multiple instances (increment SERVER_PORT by two, there is no way to overwrite the steam query port, it will always be SERVER_PORT + 1!):
@@ -63,7 +66,9 @@ The `valheim` images come in two flavors, each designed for a specific use case.
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is a bare-minimum Valheim dedicated server containing no 3rd party plugins.<br/>
 
 ## `valheim:plus`
-This is a specialized image. It contains the popular mod [ValheimPlus](https://github.com/valheimPlus/ValheimPlus).
+This is a specialized image. It contains the popular mod [ValheimPlus](https://github.com/valheimPlus/ValheimPlus). 
+
+Note: The game world is saved in a different directory in this tag, make sure to create an additional volume for world persistency across container recreations. See [#Hosting a simple game server](https://github.com/CM2Walki/Valheim/edit/master/README.md#hosting-a-simple-game-server)
 
 # Contributors
 [![Contributors Display](https://badges.pufler.dev/contributors/CM2Walki/Valheim?size=50&padding=5&bots=false)](https://github.com/CM2Walki/Valheim/graphs/contributors)
