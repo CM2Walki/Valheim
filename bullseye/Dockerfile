@@ -18,7 +18,7 @@ RUN set -x \
 		ca-certificates=20210119 \
 		lib32z1=1:1.2.11.dfsg-2+deb11u2 \
 		tini=0.19.0-1 \
-		libc6-dev=2.31-13+deb11u5 \
+		libc6-dev=2.31-13+deb11u6 \
 		file=1:5.39-3 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry scripts
