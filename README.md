@@ -72,7 +72,7 @@ This is the defacto image. If you are unsure about what your needs are, you prob
 ## `valheim:plus`
 This is a specialized image. It contains the popular mod [ValheimPlus](https://github.com/valheimPlus/ValheimPlus). 
 
-Note: The game world is saved in a different directory in this tag, make sure to create an additional volume for world persistency across container recreations. See [#Hosting a simple game server](https://github.com/CM2Walki/Valheim/edit/master/README.md#hosting-a-simple-game-server)
+Note: The game world is saved in a different directory in this tag, make sure to create an additional volume for world persistency across container recreations. See [#Hosting a simple game server](#hosting-a-simple-game-server)
 
 # Contributors
 [![Contributors Display](https://badges.pufler.dev/contributors/CM2Walki/Valheim?size=50&padding=5&bots=false)](https://github.com/CM2Walki/Valheim/graphs/contributors)
