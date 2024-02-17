@@ -10,26 +10,29 @@ ENV STEAMAPP valheim
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 ENV DLURL https://raw.githubusercontent.com/CM2Walki/Valheim
 
+COPY "etc/entry.sh" "${HOMEDIR}/entry.sh"
+COPY "etc/tinientry.sh" "${HOMEDIR}/tinientry.sh"
+
 RUN set -x \
 	# Install, update & upgrade packages
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
-		wget=1.21-1+deb11u1 \
-		ca-certificates=20210119 \
-		lib32z1=1:1.2.11.dfsg-2+deb11u2 \
+		wget=1.21.3-1+b2 \
+		ca-certificates=20230311 \
+		lib32z1=1:1.2.13.dfsg-1 \
 		tini=0.19.0-1 \
-		libc6-dev=2.31-13+deb11u7 \
-		file=1:5.39-3+deb11u1 \
+		libc6-dev=2.36-9+deb12u4 \
+		file=1:5.44-3 \
+		libatomic1=12.2.0-14 \
+		libpulse0=16.1+dfsg1-2+b1 \
+		libpulse-dev=16.1+dfsg1-2+b1 \
 	&& mkdir -p "${STEAMAPPDIR}" \
-	# Add entry scripts
-	&& wget --max-redirect=30 "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
-	&& wget --max-redirect=30 "${DLURL}/master/etc/tinientry.sh" -O "${HOMEDIR}/tinientry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
 
-FROM build_stage AS bullseye-base
+FROM build_stage AS bookworm-base
 
 ENV SERVER_PORT=2456 \
 	SERVER_PUBLIC=1 \
@@ -59,6 +62,6 @@ EXPOSE 2456/tcp \
 	2456/udp \
 	2467/udp
 
-FROM bullseye-base AS bullseye-plus
+FROM bookworm-base AS bookworm-plus
 
 ENV VALHEIM_PLUS_VERSION 0.9.9.11
