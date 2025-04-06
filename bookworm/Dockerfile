@@ -24,8 +24,8 @@ RUN set -x \
 		libc6-dev=2.36-9+deb12u10 \
 		file=1:5.44-3 \
 		libatomic1=12.2.0-14 \
-		libpulse0=16.1+dfsg1-2 \
-		libpulse-dev=16.1+dfsg1-2 \
+		libpulse0=16.1+dfsg1-2+b1 \
+		libpulse-dev=16.1+dfsg1-2+b1 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& chmod +x "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/tinientry.sh" "${STEAMAPPDIR}" \
